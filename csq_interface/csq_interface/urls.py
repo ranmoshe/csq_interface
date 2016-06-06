@@ -19,8 +19,8 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    url('^', include('django.contrib.auth.urls')),
     url(r'^accounts/login/', auth_views.login),
+    url(r'', include('django.contrib.auth.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^files_upload/', views.files_upload, name='files_upload'),
 ]

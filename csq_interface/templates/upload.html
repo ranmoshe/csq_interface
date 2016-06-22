@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Upload Data and Config Files{% endblock %}
+{% block user %}
+<div class="container">
+  <div class="jumbotron">
+    <p>{{ user.username }}'s Files</p>
+  </div>
+</div>
+{% endblock %}
+{% block content %}
+    <!-- Upload form. Note enctype attribute! -->
+    <form action="{% url "upload" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ form.non_field_errors }}</p>
+
+        <p>{{ form.datafile.label_tag }} {{ form.datafile.help_text }}</p>
+
+        <p>
+            {{ form.datafile.errors }}
+            {{ form.datafile }}
+        </p>
+
+        <p>{{ form.configfile.label_tag }} {{ form.configfile.help_text }}</p>
+
+        <p>
+            {{ form.configfile.errors }}
+            {{ form.configfile }}
+        </p>
+
+        <p><input type="submit" value="Upload"/></p>
+    </form>
+
+{% endblock %}

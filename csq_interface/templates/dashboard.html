@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}User Dashboard{% endblock %}
+{% block user %}
+<div class="container">
+  <div class="jumbotron">
+    <p>{{ user.username }}'s dashboard</p>
+  </div>
+  <ul class="list-group">
+  {% for link, name, status in userlinks %}
+  <li class="list-group-item"><a {% ifnotequal status 'disabled' %} href={{ link }} {% ifequal status 'next' %} style='color:green' {% endifequal %} {% else %} href='javascript: void(0)' style="color:grey" {% endifnotequal %} class="btn">{{ name }}</a></li>
+  {% endfor %}
+  </ul>
+
+</div>
+{% endblock %}
+{% block content %}
+{% endblock %}

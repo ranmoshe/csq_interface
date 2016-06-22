@@ -1,3 +1,6 @@
+# static files directories
+user_*/
+
 # Python venv files in root folder
 /bin/
 /lib64
